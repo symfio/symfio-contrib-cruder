@@ -1,44 +1,21 @@
-symfio = require "symfio"
-sinon = require "sinon"
-chai = require "chai"
+suite = require "symfio-suite"
 
 
 describe "contrib-cruder()", ->
-  chai.use require "chai-as-promised"
-  chai.use require "sinon-chai"
-  chai.should()
+  it = suite.plugin [
+    require ".."
 
-  container = null
-  sandbox = null
-
-  beforeEach (callback) ->
-    container = symfio "test", __dirname
-    sandbox = sinon.sandbox.create()
-
-    container.set "app", ->
-      sandbox.spy()
-
-    container.set "logger", ->
-      debug: sandbox.spy()
-
-    container.injectAll([
-      require ".."
-    ]).should.notify callback
-
-  afterEach ->
-    sandbox.restore()
+    (container) ->
+      container.set "app", null
+  ]
 
   describe "container.set resource", ->
-    it "should log message", (callback) ->
+    it "should log message", (container, logger) ->
       container.set "cruder", ->
         (app) ->
           (Model, options) ->
 
       container.inject (resource) ->
         resource modelName: "Hooray"
-      .then ->
-        container.get "logger"
-      .then (logger) ->
         logger.debug.should.be.calledOnce
         logger.debug.should.be.calledWith "resource", name: "Hooray"
-      .should.notify callback
