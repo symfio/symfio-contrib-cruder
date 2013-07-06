@@ -1,0 +1,47 @@
+{
+  "name": "symfio-contrib-cruder"
+, "version": "2.0.0-pr"
+, "description": "Cruder plugin for Symfio."
+, "keywords": ["symfio-plugin", "symfio-contrib", "cruder"]
+, "homepage": "http://symf.io/plugins/contrib-cruder"
+, "bugs": {
+    "url": "https://github.com/symfio/symfio-contrib-cruder/issues"
+  , "email": "webmaster@rithis.com"
+  }
+, "author": {
+    "name": "Vyacheslav Slinko"
+  , "email": "vyacheslav.slinko@gmail.com"
+  }
+, "main": "lib/cruder"
+, "repository": {
+    "type": "git"
+  , "url": "git://github.com/symfio/symfio-contrib-cruder.git"
+  }
+, "scripts": {
+    "test": "npm install && grunt"
+  }
+, "dependencies": {
+    "cruder": "~1.0"
+  }
+, "devDependencies": {
+    "when": "~2.2"
+  , "symfio": "~2.0"
+  , "symfio-contrib-winston": "~2.0"
+  , "symfio-contrib-express": "~2.0"
+  , "symfio-contrib-mongoose": "~2.0"
+  , "chai": "~1.7"
+  , "chai-as-promised": "~3.3"
+  , "chai-http": "~0.4"
+  , "sinon": "~1.7"
+  , "sinon-chai": "~2.4"
+  , "grunt": "~0.4"
+  , "grunt-simple-mocha": "~0.4"
+  , "grunt-coffeelint": "~0.0"
+  }
+, "engines": {
+    "node": ">=0.8"
+  , "npm": ">=1.2"
+  , "coffee-script": "~1.6"
+  , "grunt-cli": "~0.1"
+  }
+}
