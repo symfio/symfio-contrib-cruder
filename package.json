@@ -1,6 +1,6 @@
 {
   "name": "symfio-contrib-cruder"
-, "version": "2.0.0"
+, "version": "2.0.1"
 , "description": "Cruder plugin for Symfio."
 , "keywords": ["symfio-plugin", "symfio-contrib", "cruder"]
 , "homepage": "http://symf.io/plugins/contrib-cruder"
