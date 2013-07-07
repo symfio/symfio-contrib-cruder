@@ -2,20 +2,27 @@ suite = require "symfio-suite"
 
 
 describe "contrib-cruder()", ->
-  it = suite.plugin [
-    require ".."
+  it = suite.plugin (container, containerStub) ->
+    require("..") containerStub
 
-    (container) ->
-      container.set "app", null
-  ]
+    container.set "resource", (sandbox) ->
+      sandbox.spy()
+
+    container.set "cruder", (sandbox, resource) ->
+      cruder = sandbox.stub()
+      cruder.returns resource
+      cruder
+
+    container.set "app", (sandbox) ->
+      sandbox.spy()
 
   describe "container.set resource", ->
-    it "should log message", (container, logger) ->
-      container.set "cruder", ->
-        (app) ->
-          (Model, options) ->
-
-      container.inject (resource) ->
-        resource modelName: "Hooray"
-        logger.debug.should.be.calledOnce
-        logger.debug.should.be.calledWith "resource", name: "Hooray"
+    it "should define resource",
+      (containerStub, app, cruder, logger, resource) ->
+        factory = containerStub.set.get "resource"
+        wrappedResource = factory app, cruder, logger
+        cruder.should.be.calledOnce
+        cruder.should.be.calledWith app
+        wrappedResource "model", "options"
+        resource.should.be.calledOnce
+        resource.should.be.calledWith "model", "options"
