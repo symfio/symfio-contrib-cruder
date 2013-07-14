@@ -2,8 +2,8 @@ suite = require "symfio-suite"
 
 
 describe "contrib-cruder()", ->
-  it = suite.plugin (container, containerStub) ->
-    require("..") containerStub
+  it = suite.plugin (container) ->
+    container.inject ["suite/container"], require ".."
 
     container.set "resource", (sandbox) ->
       sandbox.spy()
@@ -17,12 +17,11 @@ describe "contrib-cruder()", ->
       sandbox.spy()
 
   describe "container.set resource", ->
-    it "should define resource",
-      (containerStub, app, cruder, logger, resource) ->
-        factory = containerStub.set.get "resource"
-        wrappedResource = factory app, cruder, logger
-        cruder.should.be.calledOnce
-        cruder.should.be.calledWith app
+    it "should define resource", (setted, app, resource) ->
+      factory = setted "resource"
+      factory().then (wrappedResource) ->
+        factory.dependencies.cruder.should.be.calledOnce
+        factory.dependencies.cruder.should.be.calledWith app
         wrappedResource "model", "options"
         resource.should.be.calledOnce
         resource.should.be.calledWith "model", "options"
