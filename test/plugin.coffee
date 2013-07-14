@@ -16,6 +16,10 @@ describe "contrib-cruder()", ->
     container.set "app", (sandbox) ->
       sandbox.spy()
 
+  describe "container.require cruder", ->
+    it "should require cruder", (required) ->
+      required("cruder").should.equal "cruder"
+
   describe "container.set resource", ->
     it "should define resource", (setted, app, resource) ->
       factory = setted "resource"

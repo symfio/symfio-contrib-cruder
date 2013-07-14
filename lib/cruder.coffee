@@ -1,7 +1,5 @@
 module.exports = (container) ->
-  container.set "cruder", (logger) ->
-    logger.debug "require module", name: "cruder"
-    require "cruder"
+  container.require "cruder"
 
   container.set "resource", (app, cruder, logger) ->
     resource = cruder app
