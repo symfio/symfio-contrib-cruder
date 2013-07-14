@@ -2,6 +2,8 @@
 
 > Cruder plugin for Symfio.
 
+[![Build Status](https://travis-ci.org/symfio/symfio-contrib-cruder.png?branch=master)](https://travis-ci.org/symfio/symfio-contrib-cruder) [![Dependency Status](https://gemnasium.com/symfio/symfio-contrib-cruder.png)](https://gemnasium.com/symfio/symfio-contrib-cruder)
+
 ## Usage
 
 ```coffee
