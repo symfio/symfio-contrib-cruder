@@ -2,7 +2,10 @@
 
 > Cruder plugin for Symfio.
 
-[![Build Status](https://travis-ci.org/symfio/symfio-contrib-cruder.png?branch=master)](https://travis-ci.org/symfio/symfio-contrib-cruder) [![Dependency Status](https://gemnasium.com/symfio/symfio-contrib-cruder.png)](https://gemnasium.com/symfio/symfio-contrib-cruder)
+[![Build Status](https://travis-ci.org/symfio/symfio-contrib-cruder.png?branch=master)](https://travis-ci.org/symfio/symfio-contrib-cruder)
+[![Coverage Status](https://coveralls.io/repos/symfio/symfio-contrib-cruder/badge.png?branch=master)](https://coveralls.io/r/symfio/symfio-contrib-cruder?branch=master)
+[![Dependency Status](https://gemnasium.com/symfio/symfio-contrib-cruder.png)](https://gemnasium.com/symfio/symfio-contrib-cruder)
+[![NPM version](https://badge.fury.io/js/symfio-contrib-cruder.png)](http://badge.fury.io/js/symfio-contrib-cruder)
 
 ## Usage
 
